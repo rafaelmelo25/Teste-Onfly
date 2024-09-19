@@ -55,4 +55,5 @@ class DespesaController extends Controller
 
         return redirect()->route('despesas.index')->with('success', 'Despesa excluída com sucesso.');
     }
+    
 }

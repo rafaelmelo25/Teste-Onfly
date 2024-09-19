@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex dis">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -62,11 +62,11 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        <!-- <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-        </div>
+        </div> -->
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
@@ -90,3 +90,224 @@
         </div>
     </div>
 </nav>
+
+
+<style>
+    /* Global Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Centered Container for Navbar */
+nav {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    max-width: 500px;
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Flex Container for the Header */
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo Section */
+.shrink-0 {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation Links */
+.space-x-8 > * {
+    margin-right: 2rem;
+}
+
+nav a {
+    color: #4b5563; /* Gray 600 */
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+nav a:hover, nav a:focus {
+    color: #1f2937; /* Gray 800 */
+    border-bottom: 2px solid #4b5563;
+}
+
+nav a.active {
+    color: #1f2937; /* Gray 800 */
+    border-bottom: 2px solid #6366f1; /* Indigo 500 */
+}
+
+/* User Menu */
+button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover, button:focus {
+    color: #374151;
+}
+
+button svg {
+    margin-left: 0.25rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+/* Dropdown Menu */
+.x-dropdown {
+    position: absolute;
+    right: 1rem;
+    top: 4rem;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 12rem;
+    display: none;
+}
+
+.x-dropdown[aria-expanded="true"] {
+    display: block;
+}
+
+/* Dropdown Links */
+.x-dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+    text-decoration: none;
+}
+
+.x-dropdown a:hover {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    color: #6b7280;
+}
+
+.hamburger:hover {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.hamburger svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Responsive Menu */
+.responsive-menu {
+    display: none;
+    flex-direction: column;
+    padding: 1rem 0;
+    background-color: #fff;
+}
+
+.responsive-menu.active {
+    display: flex;
+}
+
+.responsive-menu a {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #374151;
+    text-decoration: none;
+}
+
+.responsive-menu a:hover {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+/* Responsive Settings Section */
+.responsive-settings {
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.responsive-settings .user-info {
+    margin-bottom: 0.75rem;
+}
+
+.responsive-settings .user-info div {
+    font-size: 1rem;
+    color: #374151;
+}
+
+.responsive-settings .user-info div.email {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.responsive-settings a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #4b5563;
+}
+
+.responsive-settings a:hover {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+/* Utilities */
+.bg-white {
+    background-color: #ffffff;
+}
+
+.border-b {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.sm\\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.lg\\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.h-16 {
+    height: 4rem;
+}
+
+</style>
